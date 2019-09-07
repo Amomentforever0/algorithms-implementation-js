@@ -1,4 +1,4 @@
-const Node = require('./LinkedListNode');
+const Node = require('../utils/Node');
 const _globals = require('./_globals');
 
 class Stack {
