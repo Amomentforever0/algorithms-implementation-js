@@ -6,5 +6,5 @@ const samples = {
 };
 
 test('solver should return', () => {
-    expect(solver(samples[1], samples[2], samples.target)).toBe(25);
+    expect(solver.bruteForce(samples[1], samples[2], samples.target)).toBe(25);
 });
