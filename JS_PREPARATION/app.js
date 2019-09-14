@@ -5,12 +5,12 @@
 
         let currentPlayer = Math.random() > 0.5 ? 'x' : 'o';
 
-        const $$ = (selector) => {
-            return document.querySelectorAll(selector);
+        const $$ = (selector, element = null) => {
+            return element ? element.querySelectorAll(selector) : document.querySelectorAll(selector);
         }
 
-        const $ = (selector) => {
-            return document.querySelector(selector);
+        const $ = (selector, element = null) => {
+            return element ? element.querSelector(selector) : document.querySelector(selector);
         }
 
         const addListener = (el, listener, cb) => {
@@ -89,6 +89,28 @@
             currentPlayer = currentPlayer === 'x' ? 'o' : 'x';
 
             checkGameState();
+        });
+
+        const divs = $$('div', appContainer);
+        const firstParagraph = Array.from($$('p', Array.from(divs)[0]))[0];
+        addListener(firstParagraph, 'click', (e) => {
+            console.log(firstParagraph.closest('div'));
+            const elementToInsert = createElement('div');
+            elementToInsert.classList.add('added');
+            elementToInsert.insertAdjacentText('beforeend', 'hello');
+            appContainer.insertAdjacentElement('beforeend', elementToInsert);
+        });
+
+        console.log(firstParagraph);
+        console.log(divs);
+
+        const callback = (mutations, observer) => { console.log('Tree is mutating...', mutations)};
+        const observer = new MutationObserver(callback);
+
+        observer.observe(appContainer, {
+            subtree: true,
+            attributes: true,
+            childList: true,
         });
     };
 })();
