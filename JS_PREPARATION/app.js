@@ -104,6 +104,8 @@
         console.log(firstParagraph);
         console.log(divs);
 
+        // replaceWith, insertAdjacentElement;
+        // remove();
         const callback = (mutations, observer) => { console.log('Tree is mutating...', mutations)};
         const observer = new MutationObserver(callback);
 

@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+form input {
+    height: 50px;
+    margin: 10px;
+}
+
+form button {
+    height: 50px;
+    border: none;
+    background: black;
+    color: white;
+    text-transform: uppercase;
+
+}
+
+form input.validation-invalid {
+    border-color: red;
+}
+
+form input.validation-valid {
+    border-color: green;
+}
